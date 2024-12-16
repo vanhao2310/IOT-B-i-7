@@ -1,13 +1,14 @@
 const express = require("express");
 const {
-    GetSensorData,
-    PostSensorData,
-    PutSensorData,
-    DeleteSensorData
+    getSensorData,
+    postSensorData,
+    putSensorData,
+    deleteSensorData
 } = require("../controllers/SensorController.js");
 
 const router = express.Router();
 
-router.route("/:id").get(GetSensorData).put(PutSensorData).delete(DeleteSensorData).post(PostSensorData);
+router.route("/:id").get(getSensorData).put(putSensorData).delete(deleteSensorData);
+router.route("/sensor/").post(postSensorData);
 
 module.exports = router;
